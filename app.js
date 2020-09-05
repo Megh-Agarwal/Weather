@@ -30,8 +30,9 @@ app.use(express.static(publicDirectory));
 
 //All of the functions below are routes for the application and renders different files based on the route requested by the user.
 app.get('/', async (req,res) => {
-    console.log(req.ip);
-    callingIpInformation = () => ipInformation(req.ip)
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ip)
+    callingIpInformation = () => ipInformation(ip)
     .then(({data: {information}}) => { 
         city = information.city;
     })
@@ -45,7 +46,8 @@ app.get('/', async (req,res) => {
 });
 
 app.get('/json', async (req,res) => {
-    callingIpInformation = () => ipInformation(req.ip)
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    callingIpInformation = () => ipInformation(ip)
     .then(({data: {information}}) => { 
         city = information.city;
     })
@@ -59,7 +61,8 @@ app.get('/json', async (req,res) => {
 })
 
 app.get("/info", async (req,res) => {
-    callingIpInformation = () => ipInformation(req.ip)
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    callingIpInformation = () => ipInformation(ip)
     .then(({data: {information}}) => { 
         info = information;
     })
