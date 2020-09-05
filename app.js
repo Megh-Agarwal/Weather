@@ -4,6 +4,8 @@ const express = require('express');
 const handlebars = require('hbs');
 const ipInformation = require('./utils/ip.js');
 
+const port = process.env.PORT || 5000
+
 var callingIpInformation;
 var info;
 var city;
@@ -82,6 +84,6 @@ app.get('*', (req,res) => {
 })
 
 //The app listens to the port 3000.
-app.listen('3000', () => {
-    console.log("Server running on port 3000");
+app.listen(port, () => {
+    console.log("Server running on port 5000");
 })
