@@ -8,4 +8,4 @@ A web application which returns you weather data and information about a country
 Megh Agarwal
 
 ## Link
-[https://weather-megh.herokuapp.com]Click here to visit the website
+[Click here](https://weather-megh.herokuapp.com) to visit the website
