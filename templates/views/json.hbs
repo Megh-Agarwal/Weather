@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Json</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <p>Use this site to get your weather data in json format!</p>
+
+        <form>
+            <input type="search" id="address-input" placeholder="Type the city for which you want to get your weather" />
+            <br>
+            <br>
+            <button type="submit">Search</button>
+        </form>
+
+        <p>Your city is: <span id="city">{{city}}</span></p>
+        <p id="message-1"></p>
+
+        <div>
+            <code class="lang-bash hljs">
+                <pre class="code-sample" id="result">
+{
+    "location": {
+        "name": "Gentilly",
+        "country": "United States of America",
+        "region": "Louisiana",
+        "lat": "30.004",
+        "lon": "-90.029",
+        "timezone_id": "America/Chicago",
+        "localtime": "2020-09-04 13:20",
+        "localtime_epoch": 1599225600,
+        "utc_offset": "-5.0"
+    },
+}
+                </pre>
+            </code>
+        </div>
+
+    </div>
+
+    {{>footer}}
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="/js/json.js"></script>
+</body>
+</html>
