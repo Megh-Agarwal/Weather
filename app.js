@@ -30,6 +30,7 @@ app.use(express.static(publicDirectory));
 
 //All of the functions below are routes for the application and renders different files based on the route requested by the user.
 app.get('/', async (req,res) => {
+    console.log(req.ip);
     callingIpInformation = () => ipInformation(req.ip)
     .then(({data: {information}}) => { 
         city = information.city;
